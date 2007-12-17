@@ -13,7 +13,6 @@ License:	GPL
 URL:		http://ventoso.org/luca/vdr/
 Source:		http://ventoso.org/luca/vdr/vdr-%plugin-%version.tgz
 Patch0:		actuator-linux-config.patch
-BuildRoot:	%{_tmppath}/%{name}-buildroot
 BuildRequires:	vdr-devel >= 1.4.1-6
 Requires:	vdr-abi = %vdr_abi
 Requires:	dkms-actuator
