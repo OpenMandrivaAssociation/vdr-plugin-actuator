@@ -1,8 +1,8 @@
 
 %define plugin	actuator
 %define name	vdr-plugin-%plugin
-%define version	1.0.5
-%define rel	4
+%define version	1.1.1
+%define rel	1
 
 Summary:	VDR plugin: Linear or h-h actuator control
 Name:		%name
@@ -14,9 +14,9 @@ URL:		http://ventoso.org/luca/vdr/
 Source:		http://ventoso.org/luca/vdr/vdr-%plugin-%version.tgz
 Patch0:		actuator-linux-config.patch
 BuildRoot:	%{_tmppath}/%{name}-buildroot
-BuildRequires:	vdr-devel >= 1.4.1-6
+BuildRequires:	vdr-devel >= 1.6.0
 Requires:	vdr-abi = %vdr_abi
-Requires:	dkms-actuator
+Requires:	kmod(actuator)
 
 %description
 With this plugin you can control a linear or an horizon to horizon actuator
@@ -29,6 +29,8 @@ running. By counting the pulses you know the position of the actuator
 %package -n dkms-%plugin
 Summary:	Driver for an actuator connected to a parallel port
 Group:		System/Kernel and hardware
+Requires(pre):	dkms
+Requires(preun): dkms
 Requires:	dkms
 
 %description -n dkms-%plugin
@@ -39,6 +41,7 @@ with the VDR actuator plugin.
 %setup -q -n %plugin-%version
 %patch0 -p1
 mv module/README README.module
+%vdr_plugin_prep
 
 %build
 %vdr_plugin_build
@@ -69,8 +72,8 @@ rm -rf %{buildroot}
 %vdr_plugin_postun %plugin
 
 %post -n dkms-%{plugin}
-dkms add     -m %{plugin} -v %{version}-%{release} --rpm_safe_upgrade
-dkms build   -m %{plugin} -v %{version}-%{release} --rpm_safe_upgrade
+dkms add     -m %{plugin} -v %{version}-%{release} --rpm_safe_upgrade &&
+dkms build   -m %{plugin} -v %{version}-%{release} --rpm_safe_upgrade &&
 dkms install -m %{plugin} -v %{version}-%{release} --rpm_safe_upgrade
 
 %preun -n dkms-%{plugin}
