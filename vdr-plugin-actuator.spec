@@ -13,6 +13,7 @@ License:	GPL
 URL:		http://ventoso.org/luca/vdr/
 Source:		http://ventoso.org/luca/vdr/vdr-%plugin-%version.tgz
 Patch0:		actuator-linux-config.patch
+Patch1:		actuator-format-string.patch
 BuildRoot:	%{_tmppath}/%{name}-buildroot
 BuildRequires:	vdr-devel >= 1.6.0
 Requires:	vdr-abi = %vdr_abi
@@ -40,6 +41,7 @@ with the VDR actuator plugin.
 %prep
 %setup -q -n %plugin-%version
 %patch0 -p1
+%patch1 -p1
 mv module/README README.module
 %vdr_plugin_prep
 
