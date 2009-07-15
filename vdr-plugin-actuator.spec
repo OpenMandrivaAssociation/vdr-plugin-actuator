@@ -2,7 +2,7 @@
 %define plugin	actuator
 %define name	vdr-plugin-%plugin
 %define version	1.1.1
-%define rel	3
+%define rel	4
 
 Summary:	VDR plugin: Linear or h-h actuator control
 Name:		%name
@@ -14,6 +14,7 @@ URL:		http://ventoso.org/luca/vdr/
 Source:		http://ventoso.org/luca/vdr/vdr-%plugin-%version.tgz
 Patch0:		actuator-linux-config.patch
 Patch1:		actuator-format-string.patch
+Patch2:		actuator-recent-kernels.patch
 BuildRoot:	%{_tmppath}/%{name}-buildroot
 BuildRequires:	vdr-devel >= 1.6.0
 Requires:	vdr-abi = %vdr_abi
@@ -42,6 +43,7 @@ with the VDR actuator plugin.
 %setup -q -n %plugin-%version
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 mv module/README README.module
 %vdr_plugin_prep
 
