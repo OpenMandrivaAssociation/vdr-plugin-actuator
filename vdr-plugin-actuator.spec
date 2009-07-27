@@ -2,7 +2,7 @@
 %define plugin	actuator
 %define name	vdr-plugin-%plugin
 %define version	1.1.1
-%define rel	4
+%define rel	5
 
 Summary:	VDR plugin: Linear or h-h actuator control
 Name:		%name
