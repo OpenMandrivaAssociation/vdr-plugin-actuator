@@ -1,0 +1,12 @@
+Index: actuator-1.0.5/module/actuator.c
+===================================================================
+--- actuator-1.0.5/module/actuator.c
++++ actuator-1.0.5/module/actuator.c	2007-09-07 17:17:49.000000000 +0300
+@@ -32,7 +32,6 @@
+  *
+  */
+ 
+-#include <linux/config.h>
+ #include <linux/module.h>
+ #include <linux/moduleparam.h>
+ #include <linux/sched.h>
