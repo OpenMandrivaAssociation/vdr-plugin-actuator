@@ -10,7 +10,7 @@ Version:	%version
 Release:	%mkrel %rel
 Group:		Video
 License:	GPL
-URL:		http://ventoso.org/luca/vdr/
+URL:		https://ventoso.org/luca/vdr/
 Source:		http://ventoso.org/luca/vdr/vdr-%plugin-%version.tgz
 Patch0:		actuator-linux-config.patch
 Patch1:		actuator-format-string.patch
