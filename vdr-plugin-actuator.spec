@@ -7,7 +7,7 @@
 Summary:	VDR plugin: Linear or h-h actuator control
 Name:		%name
 Version:	%version
-Release:	%mkrel %rel
+Release:	%rel.1
 Group:		Video
 License:	GPL
 URL:		https://ventoso.org/luca/vdr/
